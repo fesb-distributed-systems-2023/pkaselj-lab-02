@@ -26,7 +26,7 @@ namespace Threads.ManagingThreads
             while (!cancellationToken.IsCancellationRequested)
             {
                 Console.WriteLine($"SleepWhileCancellationIsNotRequested ({managedThreadId}): Sleeping for 1s");
-                Thread.Sleep(1000);
+                Thread.Sleep(10000);
             }
 
             Console.WriteLine($"SleepWhileCancellationIsNotRequested ({managedThreadId}): Finished.");

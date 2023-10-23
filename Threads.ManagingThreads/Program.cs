@@ -10,42 +10,29 @@ namespace Threads.ManagingThreads
             int mid = Thread.CurrentThread.ManagedThreadId;
             Console.WriteLine("Primary Thread ({0}) ", mid);
 
-            var delay = TimeSpan.FromSeconds(10);
-            var cancellationTokeSource = new CancellationTokenSource(delay);
-
+            Thread workerThread;
             var code = new ConcurrentCode();
-            var threads = new[]
-            {
-                new Thread(new ThreadStart(code.SleepWhileCodeIsNotDone)),
-                // new Thread(() => code.SleepWhileCancellationIsNotRequested(cancellationTokeSource.Token)),
-                // new Thread(code.DoSleepForLongTime),
-            };
+
+            workerThread = new Thread (code.SleepWhileCodeIsNotDone);
+            workerThread.Start();
+            Thread.Sleep(5000); // Wait some time
+            code.done = true;
+            workerThread.Join();
+
+            // Token that will self-cancel after 3 seconds
+            var cancelTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(3)); 
+            // Action that will be executed when cancelation is requested
+            cancelTokenSource.Token.Register(() => { Console.WriteLine("Cancelation token activated!"); }); 
+            workerThread = new Thread(() => { code.SleepWhileCancellationIsNotRequested(cancelTokenSource.Token); });
+            workerThread.Start();
+            workerThread.Join();
 
 
-            foreach (var thread in threads)
-            {
-                thread.Start();
-            }
-
-            Thread.Sleep(3000);
-
-            foreach (var thread in threads)
-            {
-                if (thread.IsAlive)
-                {
-                    Console.WriteLine($"Primary: Thread {thread.ManagedThreadId} is alive.");
-                }
-            }
-
-            // TODO: Stop the threads (in code or debugger)
-            Thread.Sleep(TimeSpan.FromSeconds(10));
-            // code.done = true;
-            // threads[2].Interrupt();
-
-            foreach (var thread in threads)
-            {
-                thread.Join();
-            }
+            workerThread = new Thread(code.DoSleepForLongTime); // Create an infinite thread
+            workerThread.Start();
+            Thread.Sleep(5000); // Wait some time
+            workerThread.Interrupt();
+            workerThread.Join();
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Main: All threads have terminated.");

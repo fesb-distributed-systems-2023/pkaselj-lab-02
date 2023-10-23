@@ -41,25 +41,12 @@ class Program
 
     private static void DoWorkOnThreadPool()
     {
-        int iWorkerThreadsOld;
-        int iIOThreadsOld;
-        ThreadPool.GetMaxThreads(out iWorkerThreadsOld, out iIOThreadsOld);
-        ThreadPool.SetMaxThreads(ThreadPoolSize, iIOThreadsOld);
+        using var finishedCounter = new CountdownEvent(NumberOfIterations);
 
-        using var finishedCounter = new CountdownEvent(NumberOfIterations);   
-        for (var i = 0; i < NumberOfIterations; i++)
-        {
-            ThreadPool.QueueUserWorkItem(
-                _ => {
-                    Work();
-                    finishedCounter.Signal();
-                }
-            );
-        }
+        var options = new ParallelOptions();
+        options.MaxDegreeOfParallelism = ThreadPoolSize;
 
-        finishedCounter.Wait();
-
-        ThreadPool.SetMaxThreads(iWorkerThreadsOld, iIOThreadsOld);
+        _ = Parallel.For(0, NumberOfIterations, options, (_) => { Work(); });
     }
 
     private static async Task DoWorkParallel()

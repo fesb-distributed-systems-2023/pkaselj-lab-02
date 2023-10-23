@@ -3,25 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.ResponsiveUi", "Threads.ResponsiveUi\Threads.ResponsiveUi.csproj", "{1AAE29DC-F4D9-41D8-8A79-79F7C6AB2544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads.ResponsiveUi", "Threads.ResponsiveUi\Threads.ResponsiveUi.csproj", "{1AAE29DC-F4D9-41D8-8A79-79F7C6AB2544}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.CreatingThreads", "Threads.CreatingThreads\Threads.CreatingThreads.csproj", "{E4CB9C55-25EE-4B68-9019-3E9B5A72926A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads.CreatingThreads", "Threads.CreatingThreads\Threads.CreatingThreads.csproj", "{E4CB9C55-25EE-4B68-9019-3E9B5A72926A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.ManagingThreads", "Threads.ManagingThreads\Threads.ManagingThreads.csproj", "{3D91CF66-F83B-4273-B5F1-1B4E75BEDD21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads.ManagingThreads", "Threads.ManagingThreads\Threads.ManagingThreads.csproj", "{3D91CF66-F83B-4273-B5F1-1B4E75BEDD21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.UsingPools", "Threads.UsingPools\Threads.UsingPools.csproj", "{ACF439A0-F335-4638-975C-B340737BFAE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads.UsingPools", "Threads.UsingPools\Threads.UsingPools.csproj", "{ACF439A0-F335-4638-975C-B340737BFAE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.UsingTasks", "Threads.UsingTasks\Threads.UsingTasks.csproj", "{9B94E431-1E08-463E-9138-D14A366A12FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads.UsingTasks", "Threads.UsingTasks\Threads.UsingTasks.csproj", "{9B94E431-1E08-463E-9138-D14A366A12FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.AsyncAwait", "Threads.AsyncAwait\Threads.AsyncAwait.csproj", "{722022BF-5354-4490-9572-652B58F5EC54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads.AsyncAwait", "Threads.AsyncAwait\Threads.AsyncAwait.csproj", "{722022BF-5354-4490-9572-652B58F5EC54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.ProvokingRaces", "Threads.ProvokingRaces\Threads.ProvokingRaces.csproj", "{EB7CF2B0-B3C0-4FA1-94B9-E6CDA48D3008}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1AAE29DC-F4D9-41D8-8A79-79F7C6AB2544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -48,5 +47,12 @@ Global
 		{722022BF-5354-4490-9572-652B58F5EC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{722022BF-5354-4490-9572-652B58F5EC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{722022BF-5354-4490-9572-652B58F5EC54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7CF2B0-B3C0-4FA1-94B9-E6CDA48D3008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7CF2B0-B3C0-4FA1-94B9-E6CDA48D3008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7CF2B0-B3C0-4FA1-94B9-E6CDA48D3008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7CF2B0-B3C0-4FA1-94B9-E6CDA48D3008}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
