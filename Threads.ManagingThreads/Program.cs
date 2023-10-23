@@ -17,27 +17,34 @@ namespace Threads.ManagingThreads
             var threads = new[]
             {
                 new Thread(new ThreadStart(code.SleepWhileCodeIsNotDone)),
-                new Thread(() => code.SleepWhileCancellationIsNotRequested(cancellationTokeSource.Token)),
-                new Thread(code.DoSleepForLongTime),
+                // new Thread(() => code.SleepWhileCancellationIsNotRequested(cancellationTokeSource.Token)),
+                // new Thread(code.DoSleepForLongTime),
             };
 
-            for (int i = 0; i < threads.Length; i++)
-                threads[i].Start();
+
+            foreach (var thread in threads)
+            {
+                thread.Start();
+            }
 
             Thread.Sleep(3000);
 
-            bool alive = threads[2].IsAlive;
-            if (alive)
+            foreach (var thread in threads)
             {
-                Console.WriteLine($"Primary: Thread {{0}} is alive.", threads[2].ManagedThreadId);
+                if (thread.IsAlive)
+                {
+                    Console.WriteLine($"Primary: Thread {thread.ManagedThreadId} is alive.");
+                }
             }
 
-            code.done = true;
-            threads[2].Interrupt();
+            // TODO: Stop the threads (in code or debugger)
+            Thread.Sleep(TimeSpan.FromSeconds(10));
+            // code.done = true;
+            // threads[2].Interrupt();
 
-            for (int i = 0; i < threads.Length; i++)
+            foreach (var thread in threads)
             {
-                threads[i].Join();
+                thread.Join();
             }
 
             Console.ForegroundColor = ConsoleColor.Red;

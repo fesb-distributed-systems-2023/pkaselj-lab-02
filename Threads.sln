@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.ManagingThreads", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.UsingPools", "Threads.UsingPools\Threads.UsingPools.csproj", "{ACF439A0-F335-4638-975C-B340737BFAE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.UsingTasks", "Threads.UsingTasks\Threads.UsingTasks.csproj", "{9B94E431-1E08-463E-9138-D14A366A12FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.AsyncAwait", "Threads.AsyncAwait\Threads.AsyncAwait.csproj", "{722022BF-5354-4490-9572-652B58F5EC54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{ACF439A0-F335-4638-975C-B340737BFAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACF439A0-F335-4638-975C-B340737BFAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACF439A0-F335-4638-975C-B340737BFAE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B94E431-1E08-463E-9138-D14A366A12FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B94E431-1E08-463E-9138-D14A366A12FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B94E431-1E08-463E-9138-D14A366A12FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B94E431-1E08-463E-9138-D14A366A12FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{722022BF-5354-4490-9572-652B58F5EC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722022BF-5354-4490-9572-652B58F5EC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{722022BF-5354-4490-9572-652B58F5EC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{722022BF-5354-4490-9572-652B58F5EC54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
